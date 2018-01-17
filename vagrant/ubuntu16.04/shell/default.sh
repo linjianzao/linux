@@ -9,26 +9,9 @@ if [[ ! -d "/home/ubuntu/.pip/" ]]; then
 fi 
 cp /vagrant/conf/pip/pip.conf ~/.pip/pip.conf
 
-#配置vim开始
-if [[ ! -f "/home/ubuntu/.vimpkg/bin/apt-vim" ]]; then  
-    curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh 
+if [[ ! -d "/home/ubuntu/env/" ]]; then  
+    mkdir ~/env
 fi 
 
-
-if [[ ! -d "/home/ubuntu/.vim/autoload" ]]; then  
-    mkdir -p ~/.vim/autoload ~/.vim/bundle
-fi 
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-
-apt-vim install -y https://github.com/scrooloose/nerdtree.git
-
-
-cd ~/.vim
-git clone https://github.com/tomasr/molokai.git
-cp molokai/colors/ . -r
-rm -rf molokai
-
-cp /vagrant/conf/vim/vimrc ~/.vimrc -rf
-
-#配置vim结束
+cd ~/env
+virtualenv --no-site-packages localenv
