@@ -1,5 +1,5 @@
 set paste
-set ts=4                       
+set ts=4
 set expandtab
 set encoding=utf-8
 %retab!
@@ -20,9 +20,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
 
-let g:molokai_original = 1
-let g:rehash256 = 1
+let g:molokai_original = 1 
+let g:rehash256 = 1 
 set nu
 set t_Co=256
 set background=dark
 colorscheme molokai
+execute pathogen#infect()
+call pathogen#helptags()
