@@ -1,0 +1,2 @@
+安装命令需要使用下面:
+cnpm i --by=npm --no-bin-links

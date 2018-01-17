@@ -1,0 +1,36 @@
+Vagrant.configure(2) do |config|
+
+  #vagrant 镜像名,使用 " vagrant box add xxx path " 导入的box可以直接用名字访问。
+  config.vm.box = "centos6.8"
+
+  #vagrant 名字 比如 vagrant up zuipin001
+  config.vm.define "zuipin001" do |zuipin001|
+  end
+  
+  #虚拟机内的主机名
+  config.vm.hostname = "zuipin001"
+
+  #网络设置
+  config.vm.network "private_network", ip: "192.168.32.12"
+
+  #端口映射,guest客户机,host物理机
+  config.vm.network "forwarded_port", guest: 80, host: 80
+
+  #虚拟机的相关配置
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.name = "zuipin001"
+  end
+
+  #shell脚本
+  
+  config.vm.provision "shell", path: "shell/init.sh"
+
+  #上传文件,这里是一个示例，比较好的处理方式是，直接把配置文件放Vagrantfile同目录，然后使用shell 来移动文件，否则会有权限问题.
+  #config.vm.provision "file", source: "conf/aliyun.repo", destination: "/etc/yum.repos.d/aliyun.repo"
+  
+  config.vm.provision "shell", path: "shell/bootstrap.sh"
+
+
+
+end

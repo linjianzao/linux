@@ -1,0 +1,28 @@
+set paste
+set ts=4                       
+set expandtab
+set encoding=utf-8
+%retab!
+set nocp
+call pathogen#infect()
+
+
+set rtp+=/usr/local/go/misc/vim
+syntax enable
+syntax on
+filetype plugin indent on
+
+
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+
+let g:molokai_original = 1
+let g:rehash256 = 1
+set nu
+set t_Co=256
+set background=dark
+colorscheme molokai
