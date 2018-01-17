@@ -42,31 +42,14 @@ sudo systemctl restart php7.1-fpm.service
 
 #pip
 sudo apt-get install python-pip -y
-sudo apt-get install libmysqlclient-dev
+sudo apt-get install libmysqlclient-dev -y
 
 #redis
 sudo apt-get install redis-server -y
-
-#pip源修改成阿里云的
-mkdir /home/ubuntu/.pip/
-cp /vagrant/conf/pip/pip.conf /home/ubuntu/.pip/pip.conf
 
 sudo pip install virtualenv
 
 #配置vim
 sudo apt-get install vim -y
 
-curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
-mkdir -p ~/.vim/autoload ~/.vim/bundle && 
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-
-apt-vim install -y https://github.com/scrooloose/nerdtree.git
-
-
-cd ~/.vim
-git clone https://github.com/tomasr/molokai.git
-cp molokai/colors/ . -r
-
-cp /vagrant/conf/vim/vimrc ~/.vimrc -rf
 
