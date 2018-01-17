@@ -12,7 +12,8 @@ my vimrc conf
 <pre>
 <code>
 curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
-  
+
+
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
