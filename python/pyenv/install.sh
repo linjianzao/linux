@@ -28,5 +28,9 @@ brew update
 
 sudo apt-get upgrade libssl-dev
 
-#3.5.3以上版本安装:
+#3.5.3及以上版本安装:
 CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.5.4
+
+#3.5.3以下版本
+brew uninstall openssl && brew install openssl
+CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.4.7
